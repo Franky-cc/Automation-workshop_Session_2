@@ -1,0 +1,16 @@
+{
+  "name": "automation-workshop-session2",
+  "version": "1.0.0",
+  "description": "Back-end postman automation session 2",
+  "main": "index.js",
+  "scripts": {
+    "test_Create_Project_withTask": "newman run ./TodoistSession2/backEnd/collections/Todoist_Assessment2.postman_collection.json -e ./TodoistSession2/backEnd/envVariables/QA.postman_environment.json -r htmlextra --reporter-htmlextra-export ./TodoistSession2/backEnd/reports/report.html",
+    "test_Add_Several_Tasks": "newman run ./TodoistSession2/backEnd/collections/Todoist_SeveralTasks.postman_collection.json -e ./TodoistSession2/backEnd/envVariables/QA.postman_environment.json -d ./TodoistSession2/backEnd/envVariables/DDT.csv -r htmlextra --reporter-htmlextra-export ./TodoistSession2/backEnd/reports/reportSeveralTasks.html"
+  },
+  "author": "Francisca Chulim",
+  "license": "ISC",
+  "dependencies": {
+    "newman": "^5.2.2",
+    "newman-reporter-htmlextra": "^1.20.1" 
+  }
+}

@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "b1706acc-bc17-4daf-9de1-60e41bff91c3",
+		"name": "Todoist_SeveralTasks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TASKS",
+			"item": [
+				{
+					"name": "Create multiple task",
+					"item": [
+						{
+							"name": "Create multiple tasks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"var content= pm.variables.get(\"taskContentDDT\");\r",
+											"var priority= pm.variables.get(\"priorityDDT\");\r",
+											"var due_string= pm.variables.get(\"due_stringDDT\");\r",
+											"pm.test(\"Task content and priority are correct\", function () {\r",
+											"    pm.expect(jsonData.content).to.eql(content);\r",
+											"    pm.expect(jsonData.priority).to.eql(priority);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-Id",
+										"value": "$(uuidgen)",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"{{taskContentDDT}}\", \r\n    \"due_string\": \"{{due_stringDDT}}\", \r\n    \"due_lang\": \"en\", \r\n    \"priority\":{{priorityDDT}}\r\n}"
+								},
+								"url": {
+									"raw": "{{baseURL}}/tasks",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 2xx\", function () {",
+					"    pm.response.to.be.success;",
+					"});",
+					"",
+					"pm.test(\"Response time is less than 200ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}
