@@ -21,7 +21,7 @@ The tests scenarios covered includes:
 Download the project and open the project folder in your favorite IDE.
 Once inside, open a new terminal and type *npm i newman -g* to install newman and the reporter *npm i newman-reporter-htmlextra*
 
-Now, you are set up to run all the tests. Run in the terminal:
+To run all the tests type in the terminal:
 ```
 npm run test-several-tasks 
 ```
