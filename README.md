@@ -23,11 +23,11 @@ Once inside, open a new terminal and type *npm i newman -g* to install newman an
 
 To run all the tests type in the terminal:
 ```
-npm run test-several-tasks 
+npm run test_Create_Project_withTask 
 ```
 This command will initialize all the test, and will create a report.html in the reports folder of the project.
 ```
-npm run test-several-tasks 
+npm run test_Add_Several_Tasks 
 ```
-To run the test that creates several tasks from a csv file
-An html report named SeveralTasksReport.html will be created in the reports folder. To visualize the report just open the html file on chrome and enjoy!
+To run the test that creates several tasks from a csv file,
+a html report named reportSeveralTasks.html will be created in the reports folder. To visualize the report just open the html file.

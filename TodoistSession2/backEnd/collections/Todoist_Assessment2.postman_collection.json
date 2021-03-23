@@ -918,7 +918,6 @@
 											"    },\r",
 											"    \"additionalProperties\": true\r",
 											"};\r",
-											"\r",
 											"pm.test('Task without content', ()=> {\r",
 											"    pm.response.to.have.jsonSchema(createTasksSchema);\r",
 											"});"
@@ -943,7 +942,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n   \"due_string\": \"tomorrow at 12:00\", \r\n    \"due_lang\": \"en\", \r\n    \"project_id\": {{projectId}} \r\n}"
+									"raw": "{\r\n    \"content\":\"testjhljsd\",\r\n    \"due_string\": \"tomorrow at 12:00\", \r\n    \"due_lang\": \"en\", \r\n    \"project_id\": \"{{projectId}}\"\r\n}"
 								},
 								"url": {
 									"raw": "{{baseURL}}/tasks",
@@ -2309,8 +2308,8 @@
 					"    pm.response.to.be.success;",
 					"});",
 					"",
-					"pm.test(\"Response time is less than 200ms\", function () {",
-					"    pm.expect(pm.response.responseTime).to.be.below(200);",
+					"pm.test(\"Response time is less than 400ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(400);",
 					"});"
 				]
 			}
